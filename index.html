@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpicePoint - Магазин- клуб специй народов мира</title>
+    <title>SpicePoint - Клуб специй народов мира</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,130 +13,272 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #1a0a00 100%);
+            font-family: 'Roboto', sans-serif;
+            background: #0a0a0a;
             color: #fff;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .ornament-top, .ornament-bottom {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(90deg, 
+                #c9a227 0%, #e6c547 25%, #c9a227 50%, #e6c547 75%, #c9a227 100%);
+            background-size: 200px 100%;
+            z-index: 100;
+        }
+
+        .ornament-top {
+            top: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+        }
+
+        .ornament-bottom {
+            bottom: 0;
+            clip-path: polygon(5% 0, 95% 0, 100% 50%, 100% 100%, 0 100%, 0 50%);
         }
 
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23d4762c" opacity="0.3"/></svg>');
+            padding: 120px 20px 80px;
+            background: 
+                radial-gradient(ellipse at center, rgba(200, 160, 40, 0.15) 0%, transparent 60%),
+                linear-gradient(180deg, #0d0d0d 0%, #1a1208 50%, #0d0d0d 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><polygon points="100,10 120,80 190,80 135,120 155,190 100,145 45,190 65,120 10,80 80,80" fill="none" stroke="%23c9a227" stroke-width="1" opacity="0.3"/></svg>') center/contain no-repeat;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translateX(-50%) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg); }
         }
 
         .logo {
-            font-size: 4rem;
+            font-size: 5rem;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #f4a460;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #e6c547 0%, #c9a227 50%, #e6c547 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
         }
 
         .tagline {
-            font-size: 1.3rem;
-            color: #daa520;
-            margin-bottom: 30px;
+            font-size: 1.4rem;
+            color: #d4a84b;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
 
         .cta {
             display: inline-block;
-            padding: 15px 40px;
-            background: #d4762c;
-            color: #fff;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #c9a227, #8b6914);
+            color: #0a0a0a;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 0;
             font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid #e6c547;
+            transition: all 0.4s;
+            position: relative;
+            z-index: 1;
         }
 
         .cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 118, 44, 0.4);
+            background: transparent;
+            color: #e6c547;
+            box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            gap: 20px;
+        }
+
+        .divider-line {
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, #c9a227, transparent);
+        }
+
+        .divider-icon {
+            color: #c9a227;
+            font-size: 1.5rem;
         }
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 60px 20px;
+            padding: 40px 20px 60px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .feature {
-            background: rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 15px;
+            background: linear-gradient(145deg, #1a1510, #0f0d08);
+            padding: 45px 35px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c9a227, transparent);
         }
 
         .feature:hover {
+            border-color: rgba(201, 162, 39, 0.5);
             transform: translateY(-5px);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
         }
 
         .feature h3 {
-            color: #f4a460;
+            font-family: 'Playfair Display', serif;
+            color: #e6c547;
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
         .feature p {
-            color: #ccc;
-            line-height: 1.6;
+            color: #a89a7c;
+            line-height: 1.8;
         }
 
         .products {
-            background: rgba(255,255,255,0.03);
+            background: linear-gradient(180deg, #0f0d08 0%, #1a1510 50%, #0f0d08 100%);
             padding: 60px 20px;
         }
 
         .products h2 {
             text-align: center;
-            font-size: 2rem;
-            color: #daa520;
-            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #e6c547;
+            margin-bottom: 50px;
+            position: relative;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .product {
-            background: rgba(212, 118, 44, 0.2);
-            padding: 25px;
-            border-radius: 10px;
+            background: linear-gradient(145deg, #1a1510, #0a0906);
+            padding: 30px;
             text-align: center;
-            border: 1px solid rgba(212, 118, 44, 0.3);
+            border: 1px solid rgba(201, 162, 39, 0.15);
+            position: relative;
+        }
+
+        .product::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #c9a227;
+            transition: width 0.3s;
+        }
+
+        .product:hover::after {
+            width: 60%;
         }
 
         .product-emoji {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
         .product h4 {
-            color: #f4a460;
-            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+            color: #d4a84b;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         .product p {
-            color: #aaa;
-            font-size: 0.9rem;
+            color: #8a7d65;
+            font-size: 0.95rem;
+        }
+
+        .regions {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .regions h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #e6c547;
+            margin-bottom: 30px;
+        }
+
+        .regions-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .region {
+            color: #a89a7c;
+            font-size: 1.1rem;
+            padding: 10px 25px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            background: rgba(201, 162, 39, 0.05);
         }
 
         .contact {
@@ -143,68 +286,97 @@
             padding: 60px 20px;
             max-width: 600px;
             margin: 0 auto;
+            background: linear-gradient(180deg, transparent, rgba(201, 162, 39, 0.05));
         }
 
         .contact h2 {
-            color: #daa520;
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            color: #e6c547;
+            margin-bottom: 30px;
+            font-size: 2rem;
         }
 
         .contact-info {
-            color: #ccc;
-            line-height: 2;
+            color: #a89a7c;
+            line-height: 2.2;
         }
 
         .contact-info a {
-            color: #d4762c;
+            color: #d4a84b;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #e6c547;
         }
 
         footer {
             text-align: center;
             padding: 30px;
-            color: #666;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #5a5040;
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+            margin-top: 40px;
+        }
+
+        footer span {
+            color: #c9a227;
         }
 
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             .logo {
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+            .tagline {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+            .hero::before {
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="ornament-top"></div>
+    
     <section class="hero">
         <div class="logo">🌶️</div>
         <h1>SpicePoint</h1>
-        <p class="tagline">Магазин-клуб специй народов мира</p>
-        <a href="#contact" class="cta">Связаться с нами</a>
+        <p class="tagline">Клуб специй народов мира</p>
+        <a href="#contact" class="cta">Присоединяйтесь</a>
     </section>
+
+    <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">◆</div>
+        <div class="divider-line"></div>
+    </div>
 
     <section class="features">
         <div class="feature">
-            <div class="feature-icon">🌍</div>
-            <h3>Специи со всего мира</h3>
-            <p>Более 200 видов пряностей из Индии, Марокко, Таиланда, Перу и других стран</p>
+            <div class="feature-icon">🏺</div>
+            <h3>Сокровищница Востока</h3>
+            <p>Более 200 редких пряностей из Индии, Ирана, Пакистана, Марокко, Узбекистана и других стран</p>
         </div>
         <div class="feature">
-            <div class="feature-icon">📚</div>
-            <h3>Клуб любителей специй</h3>
-            <p>Мастер-классы по приготовлению блюд разных кухонь мира</p>
+            <div class="feature-icon">🧞</div>
+            <h3>Традиции поколений</h3>
+            <p>Древние рецепты и мастер-классы по приготовлению блюд восточной кухни</p>
         </div>
         <div class="feature">
             <div class="feature-icon">🎁</div>
-            <h3>Подарочные наборы</h3>
-            <p>Уникальные подарочные композиции для гурманов</p>
+            <h3>Авторские наборы</h3>
+            <p>Подарочные коллекции, собранные с учётом традиций и сочетаемости специй</p>
         </div>
     </section>
 
     <section class="products">
-        <h2>Популярные специи</h2>
+        <h2>Сокровищница ароматов</h2>
         <div class="products-grid">
             <div class="product">
                 <div class="product-emoji">🫚</div>
@@ -213,26 +385,48 @@
             </div>
             <div class="product">
                 <div class="product-emoji">🌿</div>
-                <h4>Базилик</h4>
-                <p>Италия, Таиланд</p>
+                <h4>Зира</h4>
+                <p>Иран, Узбекистан</p>
             </div>
             <div class="product">
                 <div class="product-emoji">🌶️</div>
-                <h4>Паприка</h4>
-                <p>Венгрия</p>
+                <h4>Чили</h4>
+                <p>Пакистан, Индия</p>
             </div>
             <div class="product">
-                <div class="product-emoji">🧂</div>
-                <h4>Роза</h4>
-                <p>Иран, Болгария</p>
+                <div class="product-emoji">🫙</div>
+                <h4>Шафран</h4>
+                <p>Иран</p>
+            </div>
+            <div class="product">
+                <div class="product-emoji">🌰</div>
+                <h4>Кардамон</h4>
+                <p>Индия, Гватемала</p>
+            </div>
+            <div class="product">
+                <div class="product-emoji">✨</div>
+                <h4>Бархатцы</h4>
+                <p>Марокко</p>
             </div>
         </div>
     </section>
 
+    <section class="regions">
+        <h2>География клубных встреч</h2>
+        <div class="regions-list">
+            <span class="region">🌙 Арабский мир</span>
+            <span class="region">🕌 Ближний Восток</span>
+            <span class="region">🏔️ Средняя Азия</span>
+            <span class="region">🛕 Индия</span>
+            <span class="region">☪️ Пакистан</span>
+            <span class="region">🌹 Персия</span>
+        </div>
+    </section>
+
     <section class="contact" id="contact">
-        <h2>Контакты</h2>
+        <h2>Наши контакты</h2>
         <div class="contact-info">
-            <p>📍 Москва, ул. Ароматная, д. 15</p>
+            <p>📍 Москва, ул. Восточная, д. 15</p>
             <p>📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
             <p>✉️ <a href="mailto:info@spicepoint.ru">info@spicepoint.ru</a></p>
             <p>🕐 Пн-Вс: 10:00 - 21:00</p>
@@ -240,7 +434,9 @@
     </section>
 
     <footer>
-        <p>© 2026 SpicePoint - Магазин-клуб специй народов мира</p>
+        <p>© 2026 <span>SpicePoint</span> — Клуб специй народов мира</p>
     </footer>
+
+    <div class="ornament-bottom"></div>
 </body>
 </html>
