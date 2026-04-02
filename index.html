@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpicePoint - Магазин- клуб специй народов мира</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #1a0a00 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23d4762c" opacity="0.3"/></svg>');
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #f4a460;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #daa520;
+            margin-bottom: 30px;
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #d4762c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 118, 44, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            color: #f4a460;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .products {
+            background: rgba(255,255,255,0.03);
+            padding: 60px 20px;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #daa520;
+            margin-bottom: 40px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background: rgba(212, 118, 44, 0.2);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(212, 118, 44, 0.3);
+        }
+
+        .product-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .product h4 {
+            color: #f4a460;
+            margin-bottom: 8px;
+        }
+
+        .product p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            color: #daa520;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            color: #ccc;
+            line-height: 2;
+        }
+
+        .contact-info a {
+            color: #d4762c;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .logo {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="logo">🌶️</div>
+        <h1>SpicePoint</h1>
+        <p class="tagline">Магазин-клуб специй народов мира</p>
+        <a href="#contact" class="cta">Связаться с нами</a>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">🌍</div>
+            <h3>Специи со всего мира</h3>
+            <p>Более 200 видов пряностей из Индии, Марокко, Таиланда, Перу и других стран</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📚</div>
+            <h3>Клуб любителей специй</h3>
+            <p>Мастер-классы по приготовлению блюд разных кухонь мира</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🎁</div>
+            <h3>Подарочные наборы</h3>
+            <p>Уникальные подарочные композиции для гурманов</p>
+        </div>
+    </section>
+
+    <section class="products">
+        <h2>Популярные специи</h2>
+        <div class="products-grid">
+            <div class="product">
+                <div class="product-emoji">🫚</div>
+                <h4>Куркума</h4>
+                <p>Индия</p>
+            </div>
+            <div class="product">
+                <div class="product-emoji">🌿</div>
+                <h4>Базилик</h4>
+                <p>Италия, Таиланд</p>
+            </div>
+            <div class="product">
+                <div class="product-emoji">🌶️</div>
+                <h4>Паприка</h4>
+                <p>Венгрия</p>
+            </div>
+            <div class="product">
+                <div class="product-emoji">🧂</div>
+                <h4>Роза</h4>
+                <p>Иран, Болгария</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Контакты</h2>
+        <div class="contact-info">
+            <p>📍 Москва, ул. Ароматная, д. 15</p>
+            <p>📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+            <p>✉️ <a href="mailto:info@spicepoint.ru">info@spicepoint.ru</a></p>
+            <p>🕐 Пн-Вс: 10:00 - 21:00</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 SpicePoint - Магазин-клуб специй народов мира</p>
+    </footer>
+</body>
+</html>
